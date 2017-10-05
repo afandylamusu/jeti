@@ -9,6 +9,7 @@ using Xunit.Abstractions;
 
 namespace Jet.Service.Manifest.UnitTest.Client
 {
+    [Collection("IdentityClient")]
     public class UnitTest1
     {
         private readonly IConfiguration _settings;
@@ -52,7 +53,7 @@ namespace Jet.Service.Manifest.UnitTest.Client
         [Fact(DisplayName = "Test Identity Server")]
         public async Task TestAuthToken()
         {
-             var identityUrl = _settings.GetValue<string>("IdentityApiExternal");
+            var identityUrl = _settings.GetValue<string>("IdentityApiExternal");
             var manifestUrl = _settings.GetValue<string>("ManifestApiExternal");
 
             var url = DiscoveryClient.ParseUrl(identityUrl);

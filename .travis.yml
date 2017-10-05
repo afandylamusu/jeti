@@ -13,5 +13,7 @@ branches:
     - master
 
 script:
-  - docker-compose -f docker-compose.yml -f docker-compose.override.yml up
+  - docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
+  - dotnet restore ./Jet.Service.Manifest.UnitTest.Client/Jet.Service.Manifest.UnitTest.Client.csproj
+  - dotnet build ./Jet.Service.Manifest.UnitTest.Client/Jet.Service.Manifest.UnitTest.Client.csproj
   - dotnet test ./Jet.Service.Manifest.UnitTest.Client/Jet.Service.Manifest.UnitTest.Client.csproj
