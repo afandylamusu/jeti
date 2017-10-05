@@ -1,0 +1,30 @@
+version: '2.1'
+
+services:
+  jet.service.identity:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sql.data,1433;Database=Jet.Express.Identity.Db;User Id=sa;Password=Pass@word
+      - ManifestApiClient=http://${JET_EXTERNAL_DNS_NAME_OR_IP}:5101
+    ports:
+      - "80"
+      - "5100:80"
+
+  jet.service.manifest.webapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionString=Server=sql.data,1433;Database=Jet.Express.Manifest.Db;User Id=sa;Password=Pass@word
+      - IdentityUrl=http://jet.service.identity
+      - IdentityUrlExternal=http://${JET_EXTERNAL_DNS_NAME_OR_IP}:5100
+
+    ports:
+      - "80"
+      - "5101:80"
+
+  sql.data:
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+    ports:
+      - "5533:1433"

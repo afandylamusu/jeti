@@ -1,0 +1,21 @@
+version: '2.1'
+
+services:
+  jet.service.identity:
+    image: afandy/jet.service.identity.webapi:latest
+    depends_on:
+      - sql.data
+
+
+  jet.service.manifest.webapi:
+    image: afandy/jet.service.manifest.webapi:latest
+    depends_on:
+      - sql.data
+      - jet.service.identity
+      
+  sql.data:
+    image: microsoft/mssql-server-linux:latest
+
+
+
+
