@@ -14,7 +14,7 @@ services:
       - jet.service.identity
       
   sql.data:
-    image: microsoft/mssql-server-linux:latest
+    image: microsoft/mssql-server-linux:2017-GA
 
 
 
