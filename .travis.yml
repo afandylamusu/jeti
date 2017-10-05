@@ -13,4 +13,4 @@ branches:
     - master
 
 script:
-  - sudo ./build.sh --quiet verify
+  - ./build.sh --quiet verify
