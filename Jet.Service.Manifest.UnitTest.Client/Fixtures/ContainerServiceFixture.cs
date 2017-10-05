@@ -29,7 +29,7 @@ namespace Jet.Service.Manifest.UnitTest.Client.Fixtures
         {
             if (string.IsNullOrEmpty(TestUrl)) return false;
 
-            using (var client = new HttpClient() { Timeout = TimeSpan.FromSeconds(2) })
+            using (var client = new HttpClient() { Timeout = TimeSpan.FromMinutes(1) })
             {
                 var startTime = DateTime.Now;
                 while (DateTime.Now - startTime < TestTimeout)
