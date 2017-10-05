@@ -1,5 +1,0 @@
-﻿{
-  "ManifestWebApiServer": "http://localhost:5100",
-  "ManifestApiExternal": "http://localhost:5101",
-  "IdentityApiExternal": "http://localhost:5100"
-}
